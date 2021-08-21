@@ -8,13 +8,15 @@
 // Button to clear highscore
 
 // CSS:
-// Style Header
-// Style Timer
-// Style Buttons
+// Style Header x
+// Style Timer 
+// Style Buttons 
 
 // JS:
 
 // vars
+var timer = 60
+
 // Create Vars that target DOM elements
 // quiz timer
 // var "var = quizTimerCounter = 60" 
@@ -23,34 +25,15 @@
 // document selectors
 // var "var = document.querySelector(#quiz-question-1")" * 4
 
+// buttons
 // functions
 // function to handle website timer
 // function to start quiz
 // function to generate questions
-// function to move to next set of questions array
-// function to log to local storage
-// function to pull from local storage
-// funtion to clear local storage
 
 
 
-// var tasks = [
-//     {
-//       id: 1,
-//       name: "Add localStorage persistence",
-//       type: "Web",
-//       status: "in progress"
-//     },
-//     {
-//       id: 2,
-//       name: "Learn JavaScript",
-//       type: "Web",
-//       status: "in progress"
-//     },
-//     {
-//       id: 3,
-//       name: "Refactor code",
-//       type: "Web",
-//       status: "to do"
-//     }
-//   ];
+// Kick things off
+
+
+console.log("java is running")
