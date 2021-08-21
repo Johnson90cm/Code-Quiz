@@ -95,7 +95,9 @@ function saveScore() {
  }
 
 // function to pull score from local storage and display
-function displayHighScore() { }
+function displayHighScore() { 
+    localStorage.getItem("score", JSON.parse(score))
+}
 
 
 // Create Vars that target DOM elements
@@ -104,9 +106,6 @@ function displayHighScore() { }
 // var "var questions = []" 
 // document selectors
 // var "var = document.querySelector(#quiz-question-1")" * 4
-
-
-// function to generate questions
 
 
 
