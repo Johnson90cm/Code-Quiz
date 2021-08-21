@@ -30,7 +30,7 @@
 // function to move to next set of questions array
 // function to log to local storage
 // function to pull from local storage
-// funtion to clear local storage
+// function to clear local storage
 
 
 
