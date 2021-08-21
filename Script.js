@@ -79,7 +79,7 @@ function createQuiz() {
 function countdown() {
     var timeInterval = setInterval(function () {
         if (score < 1) {
-            quizTimer.textContent = ("")
+            quizTimer.textContent = ("Times Up")
             clearInterval(timeInterval);
         }
         else {
@@ -90,7 +90,9 @@ function countdown() {
 }
 
 // function to log score to local storage
-function saveScore() { }
+function saveScore() {
+    localStorage.setItem("score", JSON.stringify(score))
+ }
 
 // function to pull score from local storage and display
 function displayHighScore() { }
