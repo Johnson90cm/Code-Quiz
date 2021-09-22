@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Code Quiz</title>
+    <link rel="stylesheet" href="./Style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+<header class="bg-secondary text-white">
+    <h1 class="text-center">CODE QUIZ: JAVASCRIPT</h1>
+</header>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <p class="text-center">Welcome to code quiz!</p>
+            <p class="text-center">The Timer = Your Score</p>
+            <p class="text-center">Every question you answer correctly adds 5 seconds to the timer</p>
+            <p class="text-center">Every question you answer incorrectly subtracts 5 seconds to the timer</p>
+            <p class="text-center">Enter your name and start quiz!</p>
+
+            <div class="" id="quiz-list-title"></div>
+
+            <div class="container">
+                <div class="row">
+                    <ul class="col-sm" id="quiz-list-questions">
+                        <!-- <li> <input type="radio" name="answer" id="a" class="answer">
+                        <label for="a" id="a_text"></label>
+                    </li>
+                    <li> <input type="radio" name="answer" id="b" class="answer">
+                        <label for="b" id="b_text"></label>
+                    </li>
+                    <li> <input type="radio" name="answer" id="c" class="answer">
+                        <label for="c" id="c_text"></label>
+                    </li> -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="row">
+        <div id="footer">
+            <div class="d-flex justify-content-center">
+            </div>
+
+            <div class="row justify-content-center" id="user-div">
+                <h3 class="d-flex justify-content-center">Input Your Name</h3>
+                <input type="text" id="user" onfocus="this.value=''" value="Player1">
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-primary btn-lg" id="start-quiz">Start Quiz</button>
+            </div>
+
+            <h3 id="timecounter" class="justify-content-center">Timer:
+                <span id="timer">60 seconds left</span>
+            </h3>
+        </div>
+        <!-- <button hidden id="save" class="row btn btn-success btn-sm">Save Your Score</button> -->
+
+        <button hidden id="highscore" class="row btn btn-success btn-sm">View Highscores</button>
+    </footer>
+
+    <script src="./Script.js"></script>
+</body>
+
+</html>
+
+<!-- HTML:
+View Highscores in header
+Time Countdown in footer
+Rules of the quiz
+Start Button
+Input for name to record highscore
+Button to submit
+Button to clear highscore -->
