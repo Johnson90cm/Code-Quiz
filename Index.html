@@ -17,14 +17,11 @@
 <body>
     <div class="container">
         <div class="row">
-            <p class="text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id quos iste sunt incidunt
-                saepe totam cupiditate,
-                asperiores dolores cumque alias ipsa dicta ex nostrum sapiente assumenda exercitationem optio et quod?
-            </p>
-
-            <div class="d-flex justify-content-center">
-                <button type="button" class="btn btn-primary btn-lg" id="start-quiz">Start Quiz</button>
-            </div>
+            <p class="text-center">Welcome to code quiz!</p>
+            <p class="text-center">The Timer = Your Score</p>
+            <p class="text-center">Every question you answer correctly adds 5 seconds to the timer</p>
+            <p class="text-center">Every question you answer incorrectly subtracts 5 seconds to the timer</p>
+            <p class="text-center">Enter your name and start quiz!</p>
 
             <div class="" id="quiz-list-title"></div>
 
@@ -46,20 +43,27 @@
         </div>
     </div>
 
-    <footer class="bg-secondary text-white">
-        <div class="d-flex justify-content-center" <div class="d-flex justify-content-center">
-            <h3 id="timecounter">Timer:
+    <footer class="row">
+        <div id="footer">
+            <div class="d-flex justify-content-center">
+            </div>
+
+            <div class="row justify-content-center" id="user-div">
+                <h3 class="d-flex justify-content-center">Input Your Name</h3>
+                <input type="text" id="user" onfocus="this.value=''" value="Player1">
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-primary btn-lg" id="start-quiz">Start Quiz</button>
+            </div>
+
+            <h3 id="timecounter" class="justify-content-center">Timer:
                 <span id="timer">60 seconds left</span>
             </h3>
         </div>
-        <h3 class="d-flex justify-content-center">Input Your Name</h3>
-        <div class="d-flex justify-content-center">
-            <input type="text" id="user">
-        </div>
-        <div class="d-flex justify-content-center">
-            <button id="save" class="btn btn-success btn-sm">Save Your Score</button>
-        </div>
-        </div>
+        <!-- <button hidden id="save" class="row btn btn-success btn-sm">Save Your Score</button> -->
+
+        <button hidden id="highscore" class="row btn btn-success btn-sm">View Highscores</button>
     </footer>
 
     <script src="./Script.js"></script>
