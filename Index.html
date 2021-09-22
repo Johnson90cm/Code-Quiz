@@ -7,38 +7,71 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Code Quiz</title>
     <link rel="stylesheet" href="./Style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
-<header>
-    <h1 class="page-title">CODE QUIZ: JAVASCRIPT</h1>
+<header class="bg-secondary text-white">
+    <h1 class="text-center">CODE QUIZ: JAVASCRIPT</h1>
 </header>
 
 <body>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id quos iste sunt incidunt saepe totam cupiditate,
-        asperiores dolores cumque alias ipsa dicta ex nostrum sapiente assumenda exercitationem optio et quod?</p>
+    <div class="container">
+        <div class="row">
+            <p class="text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id quos iste sunt incidunt
+                saepe totam cupiditate,
+                asperiores dolores cumque alias ipsa dicta ex nostrum sapiente assumenda exercitationem optio et quod?
+            </p>
 
-    <button class="" id="start-quiz">Start Quiz</button>
+            <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-primary btn-lg" id="start-quiz">Start Quiz</button>
+            </div>
 
+            <div class="" id="quiz-list-title"></div>
 
-    <div class="" id="quiz-list-title"></div>
-    <div class="" id="quiz-list-questions"></div>
-
-    <div>
-        <h3 id="timecounter">Timer:
-            <span id="timer">60</span>
-        </h3>
+            <div class="container">
+                <div class="row">
+                    <ul class="col-sm" id="quiz-list-questions">
+                        <!-- <li> <input type="radio" name="answer" id="a" class="answer">
+                        <label for="a" id="a_text"></label>
+                    </li>
+                    <li> <input type="radio" name="answer" id="b" class="answer">
+                        <label for="b" id="b_text"></label>
+                    </li>
+                    <li> <input type="radio" name="answer" id="c" class="answer">
+                        <label for="c" id="c_text"></label>
+                    </li> -->
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div>
-        <h3 id="highscores">View highscores</h3>
-    </div>
-
-    <div>
-        <form id="input-user-name">
-
-        </form>
-    </div>
+    <footer class="bg-secondary text-white">
+        <div class="d-flex justify-content-center" <div class="d-flex justify-content-center">
+            <h3 id="timecounter">Timer:
+                <span id="timer">60 seconds left</span>
+            </h3>
+        </div>
+        <h3 class="d-flex justify-content-center">Input Your Name</h3>
+        <div class="d-flex justify-content-center">
+            <input type="text" id="user">
+        </div>
+        <div class="d-flex justify-content-center">
+            <button id="save" class="btn btn-success btn-sm">Save Your Score</button>
+        </div>
+        </div>
+    </footer>
 
     <script src="./Script.js"></script>
 </body>
 
 </html>
+
+<!-- HTML:
+View Highscores in header
+Time Countdown in footer
+Rules of the quiz
+Start Button
+Input for name to record highscore
+Button to submit
+Button to clear highscore -->

@@ -1,79 +1,101 @@
-// HTML:
-// View Highscores in header
-// Time Countdown in footer
-// Rules of the quiz
-// Start Button
-// Input for name to record highscore
-// Button to submit
-// Button to clear highscore
-
-// CSS:
-// Style Header
-// Style Timer 
-// Style Buttons 
-
-// JS:
-
 // vars
-
-
 // start quiz button selector
 var buttonEl = document.querySelector("#start-quiz")
+var buttonElRemove = document.getElementById("start-quiz")
 // create quiz question buttons
 var questionItemEl = document.createElement("button")
-// var to hold questions
+// holds questions
 var titleQuestion = document.createElement("h2")
 // holds questions list
 var quizListQuestionsEl = document.getElementById("quiz-list-questions")
 // holds timer span
 var quizTimer = document.getElementById("timer")
+// holds highscore eL
+var highScoreEl = document.getElementById("highscores")
+// holds the score
+var score = 59
 
-var questionsIndex = 0
-// var to hold the score
-var score = 60
-
-
-
-
+// questions index
 var questions = [
     {
-        title: "Commonly used data type Do Not include:---",
-        choices: ["strings", "booleance", "alerts", "numbers"],
-        answer: "alerts"
+        question: "Question Number One",
+        choices: ["right", "wrong", "wrong"],
+        answer: "right"
     },
     {
-        title: "The condition in an if/else statement is enclosed within:---",
-        choices: ["quotes", "Curly brackets", "parentheses", "square brackets"],
-        answer: "parentheses"
+        question: "Question Number Two",
+        choices: ["wrong", "right", "wrong"],
+        answer: "right"
     },
     {
-        title: "Arrays in JavaScript can be used to store:---",
-        choices: ["numbers and strings", "others Arrays", "booleances", "all of the above"],
-        answer: "all of the above"
-    },
-    {
-        title: "String values must be enclosed within --- when being assigned to variables ",
-        choices: ["commas", "curly brackets", "quotes", "parentheses"],
-        answer: "quotes"
-    },
-    {
-        title: "A very useful tool used during development and debugging for printing content to the debugger is:---",
-        choices: ["JavaScript", "terminal/bash", "alerts", "console.log"],
-        answer: "console.log"
+        question: "Question Number Three",
+        choices: ["wrong", "wrong", "right"],
+        answer: "right"
     },
 ]
 
+var questionIndex = 0;
+
+
+// button click to start the quiz
 buttonEl.addEventListener("click", createQuiz)
 
 // function to start quiz
 function createQuiz() {
-    titleQuestion.textContent = questions[0].title
-    questionItemEl.textContent = questions[0].choices
-    quizListQuestionsEl.appendChild(titleQuestion)
-    quizListQuestionsEl.appendChild(questionItemEl)
-
+    buttonElRemove.remove()
     countdown()
-};
+    loadQuestions(questionIndex)
+}
+
+function loadQuestions(questionIndex) {
+
+    quizListQuestionsEl.innerHTML = "";
+
+    for (i = 0; i < questions.length; i++) {
+
+        var newQuestion = questions[questionIndex].question;
+        var newChoices = questions[questionIndex].choices;
+
+        quizListQuestionsEl.textContent = newQuestion;
+
+
+        newChoices.forEach(function (newChoices) {
+            var listItem = document.createElement("button");
+            listItem.classList = ("btn btn-primary btn-lg")
+            listItem.textContent = newChoices;
+            quizListQuestionsEl.appendChild(listItem)
+            listItem.addEventListener("click", (compare));
+        })
+    }
+}
+
+function compare(event) {
+    var element = event.target;
+
+    if (element.textContent == questions[0].answer) {
+        score = score + 5;
+        console.log("correct")
+    } else {
+        score = score - 5;
+        console.log("incorrect")
+    }
+
+    if (questionIndex >= questions.length) {
+        quizListQuestionsEl.textContent = "Quiz Complete!"
+        completed();
+    } else {
+        loadQuestions(questionIndex);
+    }
+
+    questionIndex++
+}
+
+function completed() {
+    console.log(score)
+
+}
+
+save.addEventListener("click", (saveScore))
 
 // function to start timer
 function countdown() {
@@ -91,27 +113,11 @@ function countdown() {
 
 // function to log score to local storage
 function saveScore() {
-    localStorage.setItem("score", JSON.stringify(score))
- }
-
-// function to pull score from local storage and display
-function displayHighScore() { 
-    localStorage.getItem("score", JSON.parse(score))
+    user = document.querySelector('#user').value
+    localStorage.setItem(user, JSON.stringify(score))
 }
 
-
-// Create Vars that target DOM elements
-// quiz timer
-// questions index
-// var "var questions = []" 
-// document selectors
-// var "var = document.querySelector(#quiz-question-1")" * 4
-
-
-
-
-// Kick things off
-
-
-
-console.log("java is running")
+// function to pull score from local storage and display
+function displayHighScore() {
+    localStorage.getItem("score", JSON.parse(score))
+}
