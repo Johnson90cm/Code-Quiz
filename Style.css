@@ -10,3 +10,8 @@
 /* footer{
     background: linear-gradient(to left, #ff0000 50%, #0000ff 50%);
 } */
+
+body {    
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(206,209,247,1) 100%);
+}

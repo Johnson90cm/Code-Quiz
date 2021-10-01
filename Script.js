@@ -1,7 +1,6 @@
-// vars
 // start quiz button selector
+var body = document.getElementById("document")
 var buttonEl = document.querySelector("#start-quiz")
-var buttonElRemove = document.getElementById("start-quiz")
 // // create quiz question buttons
 var questionItemEl = document.createElement("button")
 // // holds questions
@@ -12,15 +11,13 @@ var quizListQuestionsEl = document.getElementById("quiz-list-questions")
 var quizTimer = document.getElementById("timer")
 // holds highscore eL
 var highScoreEl = document.getElementById("highscore")
-
-
 var saveButtonEl = document.getElementById("save")
 var userDivEl = document.getElementById("user-div")
 var highscoreButtonEl = document.getElementById("highscore")
 
-
-// holds the score
-var score = 59
+var timer = 59
+var score = 0
+var questionIndex = 0
 
 // questions index
 var questions = [
@@ -41,10 +38,6 @@ var questions = [
     },
 ]
 
-var questionIndex = 0;
-
-var userIndex = 0;
-var scoreIndex = 0;
 
 
 // button click to start the quiz
@@ -52,7 +45,7 @@ buttonEl.addEventListener("click", createQuiz)
 
 // function to start quiz
 function createQuiz() {
-    buttonElRemove.remove()
+    buttonEl.remove()
     document.getElementById("user-div").style.visibility = "hidden"
     countdown()
     loadQuestions(questionIndex)
@@ -94,7 +87,7 @@ function compare(event) {
     }
 
     if (questionIndex >= questions.length) {
-        quizListQuestionsEl.textContent = "Quiz Complete! " + "Your Score is " + score
+        quizListQuestionsEl.textContent = "Quiz Complete! " + user.value + " Score is " + score
         completed();
     } else {
         loadQuestions(questionIndex);
@@ -106,39 +99,35 @@ function completed() {
     user = document.querySelector('#user').value
     localStorage.setItem(user, JSON.stringify(score))
 
+    
+
     document.getElementById("timecounter").style.visibility = "hidden"
     highscoreButtonEl.removeAttribute("hidden")
 }
 
-
-// save.addEventListener("click", (saveScore))
-
 // function to start timer
 function countdown() {
     var timeInterval = setInterval(function () {
-        if (score < 1) {
+        if (timer < 1) {
             quizTimer.textContent = ("Times Up")
             clearInterval(timeInterval);
         }
         else {
-            quizTimer.textContent = score + ' seconds left'
-            score--
+            quizTimer.textContent = timer + ' seconds left'
+            timer--
         }
     }, 1000);
 }
 
 highScoreEl.addEventListener("click", loadScores)
 
-// function to log score to local storage
-// function saveScore() {
-//     user = document.querySelector('#user').value
-//     localStorage.setItem(user, JSON.stringify(score))
-// }
-
-// function to pull score from local storage and display
 function loadScores() {
-    localStorage.getItem(user[userIndex], JSON.parse(score))
+
+    body.innerHTML = ""
+    document.getElementById("highscore").style.visibility = "hidden"
+
+    localStorage.getItem(user, JSON.parse(score))
     for (i = 0; i < user.length; i++) {
-    quizListQuestionsEl.textContent = user + " score = " + score
-    }
-}
+    body.innerHTML = user + " score = " + score
+    };
+};
