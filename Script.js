@@ -22,22 +22,21 @@ var questionIndex = 0
 // questions index
 var questions = [
     {
-        question: "Question Number One",
-        choices: ["right", "wrong", "wrong"],
-        answer: "right"
+        question: "CSS stands for ____ Style Sheets",
+        choices: ["cascading", "concept", "curious", "concave"],
+        answer: "cascading"
     },
     {
-        question: "Question Number Two",
-        choices: ["wrong", "right", "wrong"],
-        answer: "right"
+        question: "What is the value called that defines colors such as the following: #FFFF00?",
+        choices: ["color value", "hex value", "rgb value", "decimal value"],
+        answer: "hex value"
     },
     {
-        question: "Question Number Three",
-        choices: ["wrong", "wrong", "right"],
-        answer: "right"
+        question: "What tag is used to define the bottom section (footer) of an HTML document?",
+        choices: ["<button>", "<h1>", "<footer>", "<body>"],
+        answer: "<footer>"
     },
 ]
-
 
 
 // button click to start the quiz
@@ -69,7 +68,7 @@ function loadQuestions(questionIndex) {
             quizListQuestionsEl.appendChild(listItem)
             listItem.addEventListener("click", (compare));
         })
-        
+
     }
 }
 
@@ -79,6 +78,12 @@ function compare(event) {
     questionIndex++
 
     if (element.textContent == questions[0].answer) {
+        score = score + 5;
+        console.log("correct")
+    } else if (element.textContent == questions[1].answer) {
+        score = score + 5;
+        console.log("correct")
+    } else if (element.textContent == questions[2].answer) {
         score = score + 5;
         console.log("correct")
     } else {
@@ -98,8 +103,6 @@ function completed() {
 
     user = document.querySelector('#user').value
     localStorage.setItem(user, JSON.stringify(score))
-
-    
 
     document.getElementById("timecounter").style.visibility = "hidden"
     highscoreButtonEl.removeAttribute("hidden")
@@ -128,6 +131,6 @@ function loadScores() {
 
     localStorage.getItem(user, JSON.parse(score))
     for (i = 0; i < user.length; i++) {
-    body.innerHTML = user + " score = " + score
+        body.innerHTML = user + " score = " + score
     };
 };
